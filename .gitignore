@@ -1,3 +1,6 @@
+services
+.vscode
+
 # Logs
 logs
 *.log

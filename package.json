@@ -1,0 +1,31 @@
+{
+  "name": "nut-swagger",
+  "version": "1.0.0",
+  "description": "It generates Controller JavaScript file from you swagger file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-generate-swagger-empty-controller": "node index.js generate-default-controller ./swagger-definitions/greeting-definition-yaml.yaml ./services/controllers --overwrite true --isEmptyBody true",
+    "test-generate-swagger-default-controller": "node index.js generate-default-controller ./swagger-definitions/greeting-definition-yaml.yaml ./services/controllers --overwrite true --isEmptyBody false",
+    "test-generate-swagger-default-controller-v2": "nut-swagger generate-default-controller ./swagger-definitions/greeting-definition-yaml.yaml ./services/controllers --overwrite true --isEmptyBody false"
+  },
+  "bin": {
+    "nut-swagger": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodejs-projects-kenanhancer/nut-swagger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nodejs-projects-kenanhancer/nut-swagger/issues"
+  },
+  "homepage": "https://github.com/nodejs-projects-kenanhancer/nut-swagger#readme",
+  "dependencies": {
+    "nut-ioc": "^1.0.2",
+    "open": "^7.0.3",
+    "yargs": "^15.3.1"
+  }
+}
