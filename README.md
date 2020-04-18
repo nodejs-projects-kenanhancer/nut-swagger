@@ -20,6 +20,7 @@ info:
   description: English Greeting API
   version: 1.0.0
   title: English Greeting API
+host: api.lbg.xyz
 basePath: /greeting-api/v1
 schemes:
   - http
@@ -68,7 +69,6 @@ paths:
       responses:
         '200':
           description: success
-
 ```
 
 ### Creating Controller JavaScript file
