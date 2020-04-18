@@ -3,7 +3,7 @@ const open = require('open');
 
 const nutIocContainer = nutIoc();
 
-nutIocContainer.use({ dependencyPath: './src' });
+nutIocContainer.use({ dependencyPath: './node_modules/nut-swagger/src' });
 
 const mainAsync = async () => {
 
