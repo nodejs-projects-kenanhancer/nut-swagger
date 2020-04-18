@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/nodejs-projects-kenanhancer/nut-swagger#readme",
   "dependencies": {
-    "nut-ioc": "^1.0.2",
+    "nut-ioc": "^1.0.3",
     "open": "^7.0.3",
     "yargs": "^15.3.1"
   }
