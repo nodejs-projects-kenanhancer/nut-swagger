@@ -9,5 +9,5 @@ async function generate({ swaggerFile, destinationDir, overwrite, isEmptyBody, s
 module.exports.ServiceName = ""; //fileName if empty,null or undefined
 module.exports.Service = ({ swaggerV2JavascriptDefaultControllerGenerator }) => ({
     handler: (args) => generate({ ...args, swaggerV2JavascriptDefaultControllerGenerator }),
-    builder: _ => { }
+    builder: _ => _.demandOption(['swagger-file'])
 });

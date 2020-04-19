@@ -1,0 +1,70 @@
+swagger: '2.0'
+info:
+  description: Greeting API
+  version: 1.0.0
+  title: Greeting API
+host: localhost:8080
+basePath: /greeting-api/v1
+schemes:
+  - http
+paths:
+  /sayHello:
+    get:
+      summary: Say Hello Message
+      operationId: greetingService.sayHello
+      produces:
+        - application/json
+      parameters:
+        - name: language
+          in: header
+          type: string
+          enum:
+            - EN
+            - TR
+          required: true
+          description: Greeting Language.
+        - name: firstName
+          in: header
+          type: string
+          maxLength: 100
+          required: true
+          description: Person First Name.
+        - name: lastName
+          in: header
+          type: string
+          maxLength: 100
+          required: true
+          description: Person Last Name.
+      responses:
+        '200':
+          description: success
+  /sayGoodbye:
+    get:
+      summary: Say Goodbye Message
+      operationId: greetingService.sayGoodbye
+      produces:
+        - application/json
+      parameters:
+        - name: language
+          in: header
+          type: string
+          enum:
+            - EN
+            - TR
+          required: true
+          description: Greeting Language.
+        - name: firstName
+          in: header
+          type: string
+          maxLength: 100
+          required: true
+          description: Person First Name.
+        - name: lastName
+          in: header
+          type: string
+          maxLength: 100
+          required: true
+          description: Person Last Name.
+      responses:
+        '200':
+          description: success

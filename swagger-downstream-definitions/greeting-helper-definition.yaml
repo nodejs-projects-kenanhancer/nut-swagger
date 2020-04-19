@@ -1,0 +1,32 @@
+swagger: '2.0'
+info:
+  description: Greeting Helper API
+  version: 1.0.0
+  title: Greeting Helper API
+host: localhost
+basePath: /greeting-helper-api/v1
+schemes:
+  - http
+paths:
+  /getFullName:
+    get:
+      summary: Get Full Name
+      operationId: greetingHelperService.getFullName
+      produces:
+        - application/json
+      parameters:
+        - name: firstName
+          in: header
+          type: string
+          maxLength: 100
+          required: true
+          description: Person First Name.
+        - name: lastName
+          in: header
+          type: string
+          maxLength: 100
+          required: true
+          description: Person Last Name.
+      responses:
+        '200':
+          description: success

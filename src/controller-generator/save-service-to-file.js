@@ -1,38 +1,6 @@
-const fs = require('fs');
 const path = require('path');
 
-function existsAsync(path) {
-    return new Promise(function (resolve, reject) {
-        if (fs.existsSync(path)) {
-            resolve(true);
-        }
-
-        resolve(false);
-    });
-}
-
-function mkdirAsync(path) {
-    return new Promise((resolve, reject) => {
-        fs.mkdir(path, { recursive: true }, error => {
-            if (error) reject(error);
-
-            resolve();
-        });
-    });
-}
-
-const writeFileAsync = (file, data) => {
-    return new Promise((resolve, reject) => {
-        fs.writeFile(file, data, error => {
-            if (error) reject(error);
-
-            // resolve("file created successfully!");
-            resolve();
-        });
-    });
-};
-
-module.exports.Service = ({ }) =>
+module.exports.Service = ({ fsAsync: { existsAsync, mkdirAsync, writeFileAsync } }) =>
     async ({ generatedServices, destinationDir, overwrite }) => {
 
         for (const serviceName in generatedServices) {

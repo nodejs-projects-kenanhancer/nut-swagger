@@ -1,0 +1,54 @@
+swagger: '2.0'
+info:
+  description: English Greeting API
+  version: 1.0.0
+  title: English Greeting API
+host: localhost:8080
+basePath: /greeting-english-api/v1
+schemes:
+  - http
+paths:
+  /sayHello:
+    get:
+      summary: Say English Hello Message
+      operationId: greetingEnglishService.sayHello
+      produces:
+        - application/json
+      parameters:
+        - name: firstName
+          in: header
+          type: string
+          maxLength: 100
+          required: true
+          description: Person First Name.
+        - name: lastName
+          in: header
+          type: string
+          maxLength: 100
+          required: true
+          description: Person Last Name.
+      responses:
+        '200':
+          description: success
+  /sayGoodbye:
+    get:
+      summary: Say English Goodbye Message
+      operationId: greetingEnglishService.sayGoodbye
+      produces:
+        - application/json
+      parameters:
+        - name: firstName
+          in: header
+          type: string
+          maxLength: 100
+          required: true
+          description: Person First Name.
+        - name: lastName
+          in: header
+          type: string
+          maxLength: 100
+          required: true
+          description: Person Last Name.
+      responses:
+        '200':
+          description: success
