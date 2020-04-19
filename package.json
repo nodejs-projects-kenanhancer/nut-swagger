@@ -1,6 +1,6 @@
 {
   "name": "nut-swagger",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "It generates Controller JavaScript file from you swagger file",
   "main": "index.js",
   "scripts": {

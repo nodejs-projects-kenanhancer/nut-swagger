@@ -3,14 +3,9 @@ const open = require('open');
 
 const nutIocContainer = nutIoc();
 
-if (require.main === module) {
-    // The file is being executed directly (not with require)
-    nutIocContainer.use({ dependencyPath: './node_modules/nut-swagger/src' });
-} else {
-    nutIocContainer.use({ dependencyPath: './src' });
-}
+const mainAsync = async ({basePath}) => {
 
-const mainAsync = async () => {
+    nutIocContainer.use({ dependencyPath: basePath });
 
     const { swaggerDefaultControllerCmd, swaggerDefaultControllersFromDirCmd } = await nutIocContainer.build();
 
