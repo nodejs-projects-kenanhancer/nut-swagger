@@ -1,6 +1,6 @@
 {
   "name": "nut-swagger",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "It generates Controller JavaScript file from you swagger file",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,6 @@
     "test-generate-swagger-empty-controller": "node index.js generate-default-controller ./swagger-definitions/greeting-definition.yaml ./services/controllers --overwrite true --isEmptyBody true",
     "test-generate-swagger-default-controller": "node index.js generate-default-controller ./swagger-definitions/greeting-definition.yaml ./services/controllers --overwrite true --isEmptyBody false",
     "test-generate-swagger-default-controller-v2": "nut-swagger generate-default-controller ./swagger-definitions/greeting-definition.yaml ./services/controllers --overwrite true --isEmptyBody false",
-
     "test-generate-swagger-empty-controllers-from-dir": "node index.js generate-default-controllers-from-dir ./swagger-downstream-definitions ./services/repositories --overwrite true --isEmptyBody true",
     "test-generate-swagger-default-controllers-from-dir": "node index.js generate-default-controllers-from-dir ./swagger-downstream-definitions ./services/repositories --overwrite true --isEmptyBody false"
   },

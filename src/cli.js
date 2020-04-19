@@ -3,9 +3,9 @@ const open = require('open');
 
 const nutIocContainer = nutIoc();
 
-const mainAsync = async ({basePath}) => {
+const mainAsync = async () => {
 
-    nutIocContainer.use({ dependencyPath: basePath });
+    nutIocContainer.use({ dependencyPath: __dirname });
 
     const { swaggerDefaultControllerCmd, swaggerDefaultControllersFromDirCmd } = await nutIocContainer.build();
 
@@ -39,4 +39,4 @@ const mainAsync = async ({basePath}) => {
         .argv;
 };
 
-module.exports.default = mainAsync;
+module.exports = { mainAsync };
