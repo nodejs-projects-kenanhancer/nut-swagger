@@ -7,6 +7,13 @@ It generates Controller JavaScript file from you swagger file
 npm i nut-swagger
 ```
 
+## Demo GitHub Repository
+
+You can find **nut-swagger** usage in the following repository in **nut-swagger-usage** branch.
+
+Check **package.json** Script block in the following repository.
+
+https://github.com/nodejs-projects-kenanhancer/nut-ioc-basic-demo.git
 
 
 ## Usage
