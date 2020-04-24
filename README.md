@@ -32,7 +32,7 @@ basePath: /greeting-api/v1
 schemes:
   - http
 paths:
-  /sayHello:
+  /sayHello/{firstName}:
     get:
       summary: Say Hello Message
       operationId: greetingService.sayHello
@@ -48,13 +48,13 @@ paths:
           required: true
           description: Greeting Language.
         - name: firstName
-          in: header
+          in: path
           type: string
           maxLength: 100
           required: true
           description: Person First Name.
         - name: lastName
-          in: header
+          in: query
           type: string
           maxLength: 100
           required: true
@@ -78,13 +78,13 @@ paths:
           required: true
           description: Greeting Language.
         - name: firstName
-          in: header
+          in: query
           type: string
           maxLength: 100
           required: true
           description: Person First Name.
         - name: lastName
-          in: header
+          in: query
           type: string
           maxLength: 100
           required: true
