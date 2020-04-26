@@ -27,8 +27,8 @@ nut-swagger assumes that sayHello is a function name, greetingService is a JavaS
 **Example**
 com.kenanhancer.controllers.greetingService.sayHello
 
-Namespace: "com.kenanhancer.controllers"
-ServiceName: "greetingService"
+Namespace: "com.kenanhancer.controllers"  
+ServiceName: "greetingService"  
 FunctionName: "sayHello"
 
 
