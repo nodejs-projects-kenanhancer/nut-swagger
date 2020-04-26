@@ -11,7 +11,7 @@ paths:
   /sayHello:
     get:
       summary: Say Hello Message
-      operationId: greetingService.sayHello
+      operationId: controllers.greetingService.sayHello
       produces:
         - application/json
       parameters:
@@ -41,7 +41,7 @@ paths:
   /sayGoodbye:
     get:
       summary: Say Goodbye Message
-      operationId: greetingService.sayGoodbye
+      operationId: controllers.greetingService.sayGoodbye
       produces:
         - application/json
       parameters:

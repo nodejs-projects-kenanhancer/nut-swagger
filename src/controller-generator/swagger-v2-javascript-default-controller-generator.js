@@ -25,14 +25,21 @@ module.exports.Service = ({ saveServiceToFile, capitalize, generateFunctionBody,
 
                     const { parameters: methodParameters, operationId } = methods[method];
 
+                    let namespace;
+                    let serviceId;
+                    let actionFuncName;
+
                     const parts = operationId && operationId.split('.');
 
                     if (!parts || (parts && parts.length < 2)) {
                         throw new Error(`${path} in Swagger definition doesn't have a proper operationId. Syntax should be like this "Greeting.sayHello"`)
+                    } else if (parts.length === 3) {
+                        namespace = parts.slice(0, parts.length - 2).join('.');
+                        serviceId = parts[parts.length - 2];
+                        actionFuncName = parts[parts.length - 1];
+                    } else if (parts.length === 2) {
+                        [serviceId, actionFuncName] = parts;
                     }
-
-                    const serviceId = parts[0];
-                    const actionFunc = parts[1];
 
                     const extraParameters = {};
                     for (const methodParameter of methodParameters) {
@@ -77,8 +84,8 @@ module.exports.Service = ({ saveServiceToFile, capitalize, generateFunctionBody,
                     }
 
                     const funcHeader = await generateFunction({
-                        functionName: actionFunc,
-                        parameters: Object.keys(extraParameters).join(','),
+                        functionName: actionFuncName,
+                        parameters: Object.keys(extraParameters).join(', '),
                         funcBody
                     });
 

@@ -20,6 +20,18 @@ https://github.com/nodejs-projects-kenanhancer/nut-ioc-basic-demo.git
 
 Assume that you have the following swagger definition file.
 
+**NOT:**
+Notice that operationID is controllers.greetingService.sayHello and there are three parts on it.
+nut-swagger assumes that sayHello is a function name, greetingService is a JavaScript file name and rest of it namespace name.
+
+**Example**
+com.kenanhancer.controllers.greetingService.sayHello
+
+Namespace: "com.kenanhancer.controllers"
+ServiceName: "greetingService"
+FunctionName: "sayHello"
+
+
 **`./swagger-definitions/greeting-definition.yaml`**
 ```yaml
 swagger: '2.0'
@@ -35,7 +47,7 @@ paths:
   /sayHello/{firstName}:
     get:
       summary: Say Hello Message
-      operationId: greetingService.sayHello
+      operationId: controllers.greetingService.sayHello
       produces:
         - application/json
       parameters:
@@ -65,7 +77,7 @@ paths:
   /sayGoodbye:
     get:
       summary: Say Goodbye Message
-      operationId: greetingService.sayGoodbye
+      operationId: controllers.greetingService.sayGoodbye
       produces:
         - application/json
       parameters:
@@ -208,7 +220,7 @@ paths:
   /sayHello:
     get:
       summary: Say English Hello Message
-      operationId: greetingEnglishService.sayHello
+      operationId: controllers.greetingEnglishService.sayHello
       produces:
         - application/json
       parameters:
@@ -230,7 +242,7 @@ paths:
   /sayGoodbye:
     get:
       summary: Say English Goodbye Message
-      operationId: greetingEnglishService.sayGoodbye
+      operationId: controllers.greetingEnglishService.sayGoodbye
       produces:
         - application/json
       parameters:
@@ -266,7 +278,7 @@ paths:
   /sayHello:
     get:
       summary: Say Turkish Hello Message
-      operationId: greetingTurkishService.sayHello
+      operationId: controllers.greetingTurkishService.sayHello
       produces:
         - application/json
       parameters:
@@ -288,7 +300,7 @@ paths:
   /sayGoodbye:
     get:
       summary: Say Turkish Goodbye Message
-      operationId: greetingTurkishService.sayGoodbye
+      operationId: controllers.greetingTurkishService.sayGoodbye
       produces:
         - application/json
       parameters:
@@ -324,7 +336,7 @@ paths:
   /getFullName:
     get:
       summary: Get Full Name
-      operationId: greetingHelperService.getFullName
+      operationId: controllers.greetingHelperService.getFullName
       produces:
         - application/json
       parameters:

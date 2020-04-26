@@ -1,7 +1,7 @@
 {
   "name": "nut-swagger",
-  "version": "1.0.8",
-  "description": "It generates Controller JavaScript file from you swagger file",
+  "version": "1.0.9",
+  "description": "It generates Controller JavaScript files from you swagger files",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/nodejs-projects-kenanhancer/nut-swagger#readme",
   "dependencies": {
-    "nut-ioc": "^1.0.3",
+    "nut-ioc": "^1.0.4",
     "open": "^7.0.3",
     "yargs": "^15.3.1"
   }

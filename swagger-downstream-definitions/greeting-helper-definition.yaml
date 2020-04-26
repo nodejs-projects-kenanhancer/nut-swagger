@@ -11,7 +11,7 @@ paths:
   /getFullName:
     get:
       summary: Get Full Name
-      operationId: greetingHelperService.getFullName
+      operationId: controllers.greetingHelperService.getFullName
       produces:
         - application/json
       parameters:
