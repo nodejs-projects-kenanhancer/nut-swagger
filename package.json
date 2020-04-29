@@ -1,6 +1,6 @@
 {
   "name": "nut-swagger",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "It generates Controller JavaScript files from you swagger files",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,8 @@
     "test-generate-swagger-default-controller-v2-greeting-service": "nut-swagger generate-default-controller ./swagger-definitions/greeting-definition.yaml ./services/controllers --overwrite true --isEmptyFunctionBody false --isShortFunctionBodySyntax false",
     "test-generate-swagger-empty-controllers-from-dir": "node index.js generate-default-controllers-from-dir ./swagger-definitions ./services/controllers --overwrite true --isEmptyFunctionBody true --isShortFunctionBodySyntax false",
     "test-generate-swagger-default-controllers-from-dir": "node index.js generate-default-controllers-from-dir ./swagger-definitions ./services/controllers --overwrite true --isEmptyFunctionBody false --isShortFunctionBodySyntax true",
-    "test-generate-swagger-empty-repositories-from-dir": "node index.js generate-default-controllers-from-dir ./swagger-downstream-definitions ./services/repositories --overwrite true --isEmptyFunctionBody true  --isShortFunctionBodySyntax true",
-    "test-generate-swagger-default-repositories-from-dir": "node index.js generate-default-controllers-from-dir ./swagger-downstream-definitions ./services/repositories --overwrite true --isEmptyFunctionBody false  --isShortFunctionBodySyntax true"
+    "test-generate-swagger-empty-repositories-from-dir": "node index.js generate-default-controllers-from-dir ./swagger-downstream-definitions ./services/repositories --overwrite true --isEmptyFunctionBody true --isShortFunctionBodySyntax true",
+    "test-generate-swagger-default-repositories-from-dir": "node index.js generate-default-controllers-from-dir ./swagger-downstream-definitions ./services/repositories --overwrite true --isEmptyFunctionBody false --isShortFunctionBodySyntax true"
   },
   "bin": {
     "nut-swagger": "index.js"
@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/nodejs-projects-kenanhancer/nut-swagger#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "nut-ioc": "^1.0.4",
     "open": "^7.0.3",
     "yargs": "^15.3.1"
