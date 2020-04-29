@@ -1,10 +1,17 @@
 module.exports.Service = ({ }) =>
-    ({ method, schemes, host, basePath, path, payload, parameters }) => {
+    ({ method, schemes, host, basePath, path, parameters }) => {
         const headers = [];
+        let payload = undefined;
+
         for (const prm in parameters) {
             const { name, in: parameterLocation, required, type, maxLength } = parameters[prm];
 
-            headers.push(`"${name}": ${prm} || ''`);
+            if(parameterLocation === 'body'){
+                payload = name;
+            }
+            else{
+                headers.push(`"${name}": ${prm} || ''`);
+            }
         }
 
         const scheme = schemes && schemes.length > 0 && schemes[0];

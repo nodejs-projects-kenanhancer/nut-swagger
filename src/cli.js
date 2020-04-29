@@ -24,9 +24,15 @@ const mainAsync = async () => {
             type: 'boolean',
             default: false
         })
-        .option('isEmptyBody', {
-            alias: 'ieb',
-            description: 'Generating function body',
+        .option('isEmptyFunctionBody', {
+            alias: 'iefb',
+            description: 'Deciding function body content',
+            type: 'boolean',
+            default: false
+        })
+        .option('isShortFunctionBodySyntax', {
+            alias: 'isfbs',
+            description: 'Deciding function body syntax',
             type: 'boolean',
             default: false
         })

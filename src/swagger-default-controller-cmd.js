@@ -1,9 +1,9 @@
 const YAML = require('yamljs');
 
-async function generate({ swaggerFile, destinationDir, overwrite, isEmptyBody, swaggerV2JavascriptDefaultControllerGenerator }) {
+async function generate({ swaggerFile, destinationDir, overwrite, isEmptyFunctionBody, isShortFunctionBodySyntax, swaggerV2JavascriptDefaultControllerGenerator }) {
     const swaggerDefinition = YAML.load(swaggerFile);
 
-    await swaggerV2JavascriptDefaultControllerGenerator.generate({ swaggerDefinition, destinationDir, overwrite, isEmptyBody });
+    await swaggerV2JavascriptDefaultControllerGenerator.generate({ swaggerDefinition, destinationDir, overwrite, isEmptyFunctionBody, isShortFunctionBodySyntax });
 }
 
 module.exports.ServiceName = ""; //fileName if empty,null or undefined

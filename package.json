@@ -1,15 +1,17 @@
 {
   "name": "nut-swagger",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "It generates Controller JavaScript files from you swagger files",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test-generate-swagger-empty-controller": "node index.js generate-default-controller ./swagger-definitions/greeting-definition.yaml ./services/controllers --overwrite true --isEmptyBody true",
-    "test-generate-swagger-default-controller": "node index.js generate-default-controller ./swagger-definitions/greeting-definition.yaml ./services/controllers --overwrite true --isEmptyBody false",
-    "test-generate-swagger-default-controller-v2": "nut-swagger generate-default-controller ./swagger-definitions/greeting-definition.yaml ./services/controllers --overwrite true --isEmptyBody false",
-    "test-generate-swagger-empty-controllers-from-dir": "node index.js generate-default-controllers-from-dir ./swagger-downstream-definitions ./services/repositories --overwrite true --isEmptyBody true",
-    "test-generate-swagger-default-controllers-from-dir": "node index.js generate-default-controllers-from-dir ./swagger-downstream-definitions ./services/repositories --overwrite true --isEmptyBody false"
+    "test-generate-swagger-empty-controller-greeting-service": "node index.js generate-default-controller ./swagger-definitions/greeting-definition.yaml ./services/controllers --overwrite true --isEmptyFunctionBody true --isShortFunctionBodySyntax false",
+    "test-generate-swagger-default-controller-greeting-service": "node index.js generate-default-controller ./swagger-definitions/greeting-definition.yaml ./services/controllers --overwrite true --isEmptyFunctionBody false --isShortFunctionBodySyntax false",
+    "test-generate-swagger-default-controller-v2-greeting-service": "nut-swagger generate-default-controller ./swagger-definitions/greeting-definition.yaml ./services/controllers --overwrite true --isEmptyFunctionBody false --isShortFunctionBodySyntax false",
+    "test-generate-swagger-empty-controllers-from-dir": "node index.js generate-default-controllers-from-dir ./swagger-definitions ./services/controllers --overwrite true --isEmptyFunctionBody true --isShortFunctionBodySyntax false",
+    "test-generate-swagger-default-controllers-from-dir": "node index.js generate-default-controllers-from-dir ./swagger-definitions ./services/controllers --overwrite true --isEmptyFunctionBody false --isShortFunctionBodySyntax true",
+    "test-generate-swagger-empty-repositories-from-dir": "node index.js generate-default-controllers-from-dir ./swagger-downstream-definitions ./services/repositories --overwrite true --isEmptyFunctionBody true  --isShortFunctionBodySyntax true",
+    "test-generate-swagger-default-repositories-from-dir": "node index.js generate-default-controllers-from-dir ./swagger-downstream-definitions ./services/repositories --overwrite true --isEmptyFunctionBody false  --isShortFunctionBodySyntax true"
   },
   "bin": {
     "nut-swagger": "index.js"
