@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: 1.0.0
   title: Form Builder API
-host: localhost:8080
+host: localhost:9080
 basePath: /formbuilder-api/v1
 schemes:
   - http

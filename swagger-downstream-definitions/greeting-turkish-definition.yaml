@@ -3,7 +3,7 @@ info:
   description: Turkish Greeting API
   version: 1.0.0
   title: Turkish Greeting API
-host: localhost:8080
+host: localhost:9090
 basePath: /greeting-turkish-api/v1
 schemes:
   - http

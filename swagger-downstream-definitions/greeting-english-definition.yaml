@@ -3,7 +3,7 @@ info:
   description: English Greeting API
   version: 1.0.0
   title: English Greeting API
-host: localhost:8080
+host: localhost:9090
 basePath: /greeting-english-api/v1
 schemes:
   - http

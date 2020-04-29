@@ -1,13 +1,27 @@
+require('dotenv').config();
 const nutIoc = require('nut-ioc');
 const open = require('open');
+const {capitalize} = require('nut-ioc/helpers/string-helper');
 
 const nutIocContainer = nutIoc();
 
 const mainAsync = async () => {
 
-    nutIocContainer.use({ dependencyPath: __dirname });
+    nutIocContainer.use({dependencyPath: __dirname});
 
-    const { swaggerDefaultControllerCmd, swaggerDefaultControllersFromDirCmd } = await nutIocContainer.build();
+    nutIocContainer.useDependency({
+        ServiceName: "appEnv",
+        Namespace: undefined,
+        Service: {...process.env}
+    });
+
+    nutIocContainer.useDependency({
+        ServiceName: "capitalize",
+        Namespace: undefined,
+        Service: ({}) => capitalize
+    });
+
+    const {swaggerDefaultControllerCmd, swaggerDefaultControllersFromDirCmd} = await nutIocContainer.build();
 
     const argv = require('yargs')
         .version()
@@ -45,4 +59,4 @@ const mainAsync = async () => {
         .argv;
 };
 
-module.exports = { mainAsync };
+module.exports = {mainAsync};
