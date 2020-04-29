@@ -109,11 +109,11 @@ paths:
 ### Creating Controller JavaScript file
 
 Run the following code to create file.
-If **--isEmptyBody** value is **true**, then probably you need to write your business logic.
-If **--isEmptyBody** value is **false**, then probably you will call a downstream service. So, nut-swagger will write method body for you.
+If **--isEmptyFunctionBody** value is **true**, then probably you need to write your business logic.
+If **--isEmptyFunctionBody** value is **false**, then probably you will call a downstream service. So, nut-swagger will write method body for you.
 
 ```shell script
-nut-swagger generate-default-controller ./swagger-definitions/greeting-definition.yaml ./services/controllers --overwrite true --isEmptyBody false
+nut-swagger generate-default-controller ./swagger-definitions/greeting-definition.yaml ./services/controllers --overwrite true --isEmptyFunctionBody false
 ```
 
 **Output**
@@ -172,7 +172,7 @@ module.exports.Service = ({ requestHandler }) => {
 Run the following code to create file.
 
 ```shell script
-nut-swagger generate-default-controller ./swagger-definitions/greeting-definition.yaml ./services/controllers --overwrite true --isEmptyBody true
+nut-swagger generate-default-controller ./swagger-definitions/greeting-definition.yaml ./services/controllers --overwrite true --isEmptyFunctionBody true
 ```
 
 **Output**
@@ -198,7 +198,7 @@ module.exports.Service = ({ requestHandler }) => {
 Run the following code to create files from directory. We need this options for repositories(Downstream service calls). Assume that you have **swagger-downstream-definitions** folder and there are three downstream service swagger definition files. In this case, you just run the following command then three JavaScript controller files will be created.
 
 ```shell script
-nut-swagger generate-default-controllers-from-dir ./swagger-downstream-definitions ./services/repositories --overwrite true --isEmptyBody false
+nut-swagger generate-default-controllers-from-dir ./swagger-downstream-definitions ./services/repositories --overwrite true --isEmptyFunctionBody false
 ```
 
 **Swagger Definition Files**

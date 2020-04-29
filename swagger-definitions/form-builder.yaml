@@ -1,0 +1,190 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Form Builder API
+host: localhost:8080
+basePath: /formbuilder-api/v1
+schemes:
+  - http
+consumes:
+  - application/json; charset=utf-8
+produces:
+  - application/json; charset=utf-8
+paths:
+  /forms:
+    get:
+      summary: Returns the forms by application
+      operationId: controllers.elementsService.getForms
+      parameters:
+        - $ref: '#/parameters/appid'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Element'
+        default:
+          description: Some kind of error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  /elements:
+    get:
+      summary: Returns array of the element
+      operationId: controllers.elementsService.getElements
+      parameters:
+        - $ref: '#/parameters/appid'
+        - $ref: '#/parameters/pageid'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Element'
+        default:
+          description: Some kind of error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+    post:
+      summary: Update existing elements or add new element to elements
+      operationId: controllers.elementsService.saveElements
+      produces:
+        - 'application/xml'
+        - 'application/json'
+      parameters:
+        - $ref: '#/parameters/elements'
+      responses:
+        '200':
+          description: Success
+        '405':
+          description: Invalid input
+        default:
+          description: Some kind of error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+parameters:
+  appid:
+    name: appid
+    in: header
+    required: true
+    type: string
+    enum:
+      - OPENSTOCK
+      - BWOPERATIONS
+  pageid:
+    name: pageid
+    in: header
+    type: string
+    required: true
+  elements:
+    name: 'elements'
+    in: 'body'
+    description: 'List of element object'
+    required: true
+    schema:
+      type: 'array'
+      items:
+        $ref: '#/definitions/Element'
+definitions:
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  Element:
+    type: object
+    required:
+      - appId
+      - Id
+      - elementType
+    properties:
+      appId:
+        type: string
+        description: Application Id
+      pageId:
+        type: string
+        description: Form Id
+      Id:
+        type: string
+        description: Element Id
+      parentId:
+        type: string
+        description: Parent Element's Id
+      elementType:
+        type: string
+        description: Element Type
+        enum:
+          - component
+          - container
+      containerType:
+        type: string
+        enum:
+          - row
+          - col
+          - form
+          - tabs
+          - tab
+      componentType:
+        type: string
+        enum:
+          - input
+          - inputsearch
+          - select
+          - datepicker
+          - daterangepicker
+          - timepicker
+          - radio
+          - checkbox
+          - switch
+          - label
+          - tabbar
+          - textarea
+      index:
+        type: integer
+        description: Index
+      inline:
+        type: boolean
+        description: Inline Label
+      border:
+        type: string
+      borderColor:
+        type: string
+      bgColor:
+        type: string
+      textColor:
+        type: string
+      name:
+        type: string
+      title:
+        type: object
+        properties:
+          EN:
+            type: string
+          TR:
+            type: string
+          DE:
+            type: string
+          FR:
+            type: string
+      items:
+        type: array
+        items:
+          type: object
+      required:
+        type: boolean
+      isFullWidth:
+        type: boolean
+      validationEnabled:
+        type: boolean
+      validation:
+        type: object
+        properties: {}
+      dataType:
+        type: string
+        enum:
+          - string
+          - number
+          - boolean
+          - datetime
+      trueValue:
+        type: string
+      falseValue:
+        type: string

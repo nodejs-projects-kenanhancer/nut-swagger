@@ -1,17 +1,7 @@
-const generateServiceModule = ({ functionsBodies, dependencies }) => `module.exports.ServiceName = ""; //fileName if empty,null or undefined
-module.exports.Service = ({ ${dependencies} }) => {
-
-    return {
-${functionsBodies}
-    };
-
-};`;
-
-
 module.exports.ServiceName = ""; //fileName if empty,null or undefined
-module.exports.Service = ({ saveServiceToFile, capitalize, generateFunctionBody, generateFunction, generateServiceModule }) =>
+module.exports.Service = ({ saveServiceToFile, capitalize, generateFunctionBody, generateFunction, generateDefaultSyntaxServiceModule, generateShortSyntaxServiceModule }) =>
     ({
-        generate: async ({ swaggerDefinition, destinationDir, overwrite = false, isEmptyBody = false }) => {
+        generate: async ({ swaggerDefinition, destinationDir, overwrite = false, isEmptyFunctionBody = false, isShortFunctionBodySyntax = false }) => {
 
             const serviceFunctionBodies = {};
 
@@ -69,14 +59,13 @@ module.exports.Service = ({ saveServiceToFile, capitalize, generateFunctionBody,
 
                     let funcBody;
 
-                    if (!isEmptyBody) {
+                    if (!isEmptyFunctionBody) {
                         funcBody = await generateFunctionBody({
                             method,
                             schemes,
                             host,
                             basePath,
                             path,
-                            payload: undefined,
                             parameters: extraParameters
                         });
                     } else {
@@ -102,11 +91,19 @@ module.exports.Service = ({ saveServiceToFile, capitalize, generateFunctionBody,
 
             for (const serviceName in serviceFunctionBodies) {
                 const serviceFunctionBody = serviceFunctionBodies[serviceName];
+                let generatedService;
 
-                const generatedService = await generateServiceModule({
-                    functionsBodies: serviceFunctionBody.join(',\n'),
-                    dependencies: 'requestHandler'
-                });
+                if(isShortFunctionBodySyntax){
+                    generatedService = await generateShortSyntaxServiceModule({
+                        functionsBodies: serviceFunctionBody.join(',\n'),
+                        dependencies: 'requestHandler'
+                    });
+                }else{
+                    generatedService = await generateDefaultSyntaxServiceModule({
+                        functionsBodies: serviceFunctionBody.join(',\n'),
+                        dependencies: 'requestHandler'
+                    });
+                }
 
                 generatedServices[serviceName] = generatedService;
             }

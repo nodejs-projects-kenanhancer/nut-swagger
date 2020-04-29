@@ -1,7 +1,7 @@
 const YAML = require('yamljs');
 const path = require('path');
 
-async function generate({ swaggerDir, destinationDir, overwrite, isEmptyBody, swaggerV2JavascriptDefaultControllerGenerator, fsAsync: { isDirectoryAsync, readDirAsync } }) {
+async function generate({ swaggerDir, destinationDir, overwrite, isEmptyFunctionBody, isShortFunctionBodySyntax, swaggerV2JavascriptDefaultControllerGenerator, fsAsync: { isDirectoryAsync, readDirAsync } }) {
 
     if (await isDirectoryAsync(swaggerDir)) {
         const swaggerFiles = (await readDirAsync(swaggerDir)).filter(filePath => {
@@ -15,7 +15,7 @@ async function generate({ swaggerDir, destinationDir, overwrite, isEmptyBody, sw
 
             const swaggerDefinition = YAML.load(swaggerFilePath);
 
-            await swaggerV2JavascriptDefaultControllerGenerator.generate({ swaggerDefinition, destinationDir, overwrite, isEmptyBody });
+            await swaggerV2JavascriptDefaultControllerGenerator.generate({ swaggerDefinition, destinationDir, overwrite, isEmptyFunctionBody, isShortFunctionBodySyntax });
         }
     }
 }
